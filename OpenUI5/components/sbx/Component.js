@@ -12,11 +12,6 @@ sap.ui.core.UIComponent.extend("cag.sbx.Component",
 			libs: ["sap.m", "sap.ui.layout"],
 			components: []
 		},
-		rootView: "cag.sbx.views.Home",
-		config:
-		{
-			
-		},
 		routing:
 		{
 			config:
