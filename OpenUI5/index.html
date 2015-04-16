@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title></title>
+	<script id="sap-ui-bootstrap"
+			src="https://openui5.hana.ondemand.com/resources/sap-ui-core.js"
+			data-sap-ui-theme="sap_bluecrystal"
+			data-sap-ui-libs="sap.ui.commons,sap.m"></script>
+	<script>
+		jQuery.sap.registerModulePath("cag.sbx", "./components/sbx");
+
+		new sap.ui.core.ComponentContainer({
+				name: 'cag.sbx'
+			}).placeAt("content");
+	</script>
+</head>
+<body>
+	<div id="content"></div>
+</body>
+</html>

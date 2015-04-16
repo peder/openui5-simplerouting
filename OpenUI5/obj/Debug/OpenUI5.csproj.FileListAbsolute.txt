@@ -1,0 +1,6 @@
+D:\Projects\Sandbox\OpenUI5\OpenUI5\bin\OpenUI5.dll.config
+D:\Projects\Sandbox\OpenUI5\OpenUI5\bin\OpenUI5.dll
+D:\Projects\Sandbox\OpenUI5\OpenUI5\bin\OpenUI5.pdb
+D:\Projects\Sandbox\OpenUI5\OpenUI5\obj\Debug\OpenUI5.csprojResolveAssemblyReference.cache
+D:\Projects\Sandbox\OpenUI5\OpenUI5\obj\Debug\OpenUI5.dll
+D:\Projects\Sandbox\OpenUI5\OpenUI5\obj\Debug\OpenUI5.pdb
