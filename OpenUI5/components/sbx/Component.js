@@ -6,14 +6,24 @@ sap.ui.core.UIComponent.extend("cag.sbx.Component",
 {
 	metadata:
 	{
+		name: "OpenUI5 Simple Routing",
+		includes: [],
+		dependencies: {
+			libs: ["sap.m", "sap.ui.layout"],
+			components: []
+		},
+		rootView: "cag.sbx.views.Home",
+		config:
+		{
+			
+		},
 		routing:
 		{
 			config:
 			{
 				viewType: "JS",
 				viewPath: "cag.sbx.views",
-				targetContent: "content",
-				targetAggregation: "Pages",
+				targetControl: "emptyElement",
 				clearTarget: false
 			},
 			routes:
@@ -21,19 +31,18 @@ sap.ui.core.UIComponent.extend("cag.sbx.Component",
 				{
 					pattern: "products/{id}",
 					name: "product",
-					view: "Products",
-					callback: function() { console.log(arguments); console.log("in products callback"); }
+					view: "Products"
 				},
 				{
 					pattern: "login",
-					name: "default",
-					view: "Login"
+					name: "login",
+					view: "Login",
+					callback: function() { console.log("in login callback"); }
 				},
 				{
 					pattern: "",
 					name: "default",
-					view: "Home",
-					callback: function() { console.log("in default callback"); }
+					view: "Home"
 				}
 			]
 		}
@@ -46,6 +55,8 @@ sap.ui.core.UIComponent.extend("cag.sbx.Component",
 	},
 	createContent: function()
 	{
-		
+		var panel = new sap.ui.commons.ResponsiveContainer("emptyElement");
+
+		return panel;
 	}
 });
