@@ -2,7 +2,7 @@
 
 sap.ui.controller("cag.sbx.controllers.Home",
 {
-	launchProducts: function()
+	test: function()
 	{
 		alert("woo!");
 	}

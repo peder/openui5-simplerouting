@@ -9,17 +9,14 @@
 	<script>
 		jQuery.sap.registerModulePath("cag.sbx", "./components/sbx");
 
-		new sap.ui.core.ComponentContainer({
-				name: 'cag.sbx'
+		sap.ui.getCore().attachInit(function()
+		{
+			new sap.m.Shell({
+				app: new sap.ui.core.ComponentContainer({
+					name: "cag.sbx"
+				})
 			}).placeAt("content");
-
-		//new sap.m.Shell(
-		//{
-		//	app: new sap.ui.core.ComponentContainer(
-		//	{
-		//		name: 'cag.sbx'
-		//	})
-		//}).placeAt("content");
+		});
 	</script>
 </head>
 <body>

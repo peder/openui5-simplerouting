@@ -59,7 +59,9 @@
   <ItemGroup>
     <Content Include="components\sbx\Component.js" />
     <Content Include="components\sbx\controllers\Home.controller.js" />
+    <Content Include="components\sbx\controllers\Products.controller.js" />
     <Content Include="components\sbx\views\Home.view.js" />
+    <Content Include="components\sbx\views\Products.view.js" />
     <Content Include="index.html" />
     <Content Include="Web.config" />
   </ItemGroup>

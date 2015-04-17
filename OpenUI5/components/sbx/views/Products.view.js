@@ -11,7 +11,7 @@ sap.ui.jsview("cag.sbx.views.Home",
 		var button = new sap.ui.commons.Button(
 		{
 			text: "Hello World!",
-			press: controller.launchProducts
+			press: controller.test
 		});
 
 		return button;

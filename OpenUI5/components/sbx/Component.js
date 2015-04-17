@@ -18,7 +18,8 @@ sap.ui.core.UIComponent.extend("cag.sbx.Component",
 			{
 				viewType: "JS",
 				viewPath: "cag.sbx.views",
-				targetControl: "emptyElement",
+				targetControl: "mainSplitContainer",
+				targetAggregation: "masterPages",
 				clearTarget: false
 			},
 			routes:
@@ -44,14 +45,38 @@ sap.ui.core.UIComponent.extend("cag.sbx.Component",
 	},
 	init: function()
 	{
+		jQuery.sap.require("sap.ui.core.routing.History");
+		jQuery.sap.require("sap.m.routing.RouteMatchedHandler");
+
 		sap.ui.core.UIComponent.prototype.init.apply(this, arguments);
 		// this component should automatically initialize the router!
-		this.getRouter().initialize();
+
+		var router = this.getRouter();
+		this.routeHandler = new sap.m.routing.RouteMatchedHandler(router);
+		router.initialize();
 	},
 	createContent: function()
 	{
-		var panel = new sap.ui.commons.ResponsiveContainer("emptyElement");
+		var sc = new sap.m.SplitContainer({
+			id: "mainSplitContainer"
+		});
+		fullscreen = new sap.m.Page(
+		{
+			id: "mainFullscreen"
+			//title: "fullscreen",
+			//content: new sap.m.Button({
+			//	text: "to master detail",
+			//	press: function()
+			//	{
+			//		app.to(sc.getId())
+			//	}
+			//})
+		});
 
-		return panel;
+		app = new sap.m.App({
+			pages: [sc, fullscreen]
+		});
+
+		return app;
 	}
 });
