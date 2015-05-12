@@ -1,6 +1,6 @@
-﻿/// <reference path="https://openui5.hana.ondemand.com/resources/sap-ui-core.js" />
+﻿/// <reference path="https://openui5beta.hana.ondemand.com/resources/sap-ui-core.js" />
 
-sap.ui.controller("cag.sbx.controllers.Home",
+sap.ui.controller("cag.sbx.controllers.Products",
 {
 	test: function()
 	{
