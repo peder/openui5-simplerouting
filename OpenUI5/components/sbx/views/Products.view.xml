@@ -1,0 +1,3 @@
+﻿<View xmlns="sap.m" controllerName="cag.sbx.controllers.Products">
+	<Button text="Default" press="test" />
+</View>

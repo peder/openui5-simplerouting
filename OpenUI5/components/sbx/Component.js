@@ -2,69 +2,99 @@
 
 jQuery.sap.declare("cag.sbx.Component");
 
-sap.ui.core.UIComponent.extend("cag.sbx.Component",
+//sap.ui.core.UIComponent.extend("cag.sbx.Component",
+//{
+
+sap.ui.define(["sap/ui/core/UIComponent"], function(UIComponent)
 {
-	metadata:
-	{
-		name: "OpenUI5 Simple Routing",
-		includes: [],
-		dependencies: {
-			libs: ["sap.m", "sap.ui.layout"],
-			components: []
-		},
-		routing:
+	"use strict";
+
+	return UIComponent.extend("cag.sbx.Component", {
+
+		metadata:
 		{
-			config:
-			{
-				viewType: "JS",
-				viewPath: "cag.sbx.views",
-				targetControl: "emptyElement",
-				targetAggregation: "masterPages",
-				clearTarget: false
+			name: "OpenUI5 Simple Routing",
+			includes: [],
+			dependencies: {
+				libs: ["sap.m", "sap.ui.layout"],
+				components: []
 			},
-			routes:
-			[
-				{
-					pattern: "products/{id}",
-					name: "product",
-					view: "Products",
+			rootView: "cag.sbx.views.App",
+			/*rootView: "sap.ui.core.sample.TargetsStandalone.targetsApp.view.App",
+			routing: {
+				config: {
+					targetsClass: "sap.m.routing.Targets",
+					viewPath: "sap.ui.core.sample.TargetsStandalone.targetsApp.view",
+					controlId: "emptyElement",
+					controlAggregation: "masterPages",
+					viewType: "XML"
 				},
-				{
-					pattern: "login",
-					name: "login",
-					view: "Login"
-				},
-				{
-					pattern: "",
-					name: "default",
-					view: "Home",
-					subroutes:
-						[
-
-						]
+				targets: {
+					page1: {
+						viewName: "View1",
+						viewLevel: 0
+					},
+					page2: {
+						viewName: "View2",
+						viewLevel: 1
+					}
 				}
-			],
-			targets:
+			}*/
+
+			routing:
 			{
-				detail:
+				config:
 				{
-					viewName: 'Detail'
-				}
+					routerClass: "sap.m.routing.Router",
+					viewType: "XML",
+					viewPath: "cag.sbx.views",
+					targetControl: "splitContainer",
+					targetAggregation: "masterPages",
+					controlId: "splitContainer",
+					controlAggregation: "detailPages",
+					clearTarget: false
+				},
+				routes:
+				[
+					{
+						pattern: "",
+						name: "default",
+						view: "Home",
+						targetAggregation: "pages",
+						targetControl: "main"
+					},
+					{
+						pattern: "s",
+						name: "_magic",
+						view: "SplitContainer",
+						targetAggregation: "pages",
+						targetControl: "main",
+						subroutes: [
+						{
+							pattern: "s/Details",
+							name: "foo_sub1",
+							view: "Master",
+							targetAggregation: "masterPages",
+							targetControl: "splitContainer",
+							subroutes: [
+							{
+								pattern: "s/Details",
+								name: "foo_sub2",
+								view: "Detail",
+								targetAggregation: "detailPages",
+							}]
+						}]
+					}
+				]
 			}
+		},
+		init: function()
+		{
+			sap.ui.core.UIComponent.prototype.init.apply(this, arguments);
+			// this component should automatically initialize the router!
+
+			var router = this.getRouter();
+			router.initialize();
 		}
-	},
-	init: function()
-	{
-		sap.ui.core.UIComponent.prototype.init.apply(this, arguments);
-		// this component should automatically initialize the router!
-
-		var router = this.getRouter();
-		router.initialize();
-	},
-	createContent: function()
-	{
-		var panel = new sap.m.SplitApp("emptyElement");
-
-		return panel;
-	}
-});
+	});
+}, /* bExport= */ true);

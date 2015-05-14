@@ -1,9 +1,14 @@
 ﻿/// <reference path="https://openui5beta.hana.ondemand.com/resources/sap-ui-core.js" />
 
-sap.ui.controller("cag.sbx.controllers.Products",
+sap.ui.define(["sap/ui/core/mvc/Controller"], function(Controller)
 {
-	test: function()
-	{
-		alert("woo!");
-	}
-});
+	"use strict";
+
+	return Controller.extend("cag.sbx.controllers.Products", {
+		test: function()
+		{
+			alert("woo!");
+		}
+	});
+
+}, /* bExport= */ true);
